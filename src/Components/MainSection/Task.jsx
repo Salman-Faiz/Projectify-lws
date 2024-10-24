@@ -8,8 +8,9 @@ const Task = ({ task }) => {
     return <p>Task data is not available</p>;
   }
 
- 
+
   const { taskName, description, date, category } = task;
+  console.log(category)
 
   return (
     

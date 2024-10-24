@@ -20,6 +20,7 @@ const AddTaskModal = ({ onClose }) => {
 
     console.log('from add task', taskName, description, dueDate, category)
     const formData = {
+        id: crypto.randomUUID(),
         taskName, 
         description,
         date: dueDate,
