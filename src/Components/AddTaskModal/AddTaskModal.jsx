@@ -30,6 +30,7 @@ const AddTaskModal = ({ onClose }) => {
 
    
     setAddTaskData([...addTaskData, formData]);
+    form.reset();
   }
 
   return (

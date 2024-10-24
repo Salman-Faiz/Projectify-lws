@@ -3,14 +3,22 @@
 import deleteIcon from '../../assets/Images/deleteIcon.svg';
 import editIcon from '../../assets/Images/editIcon.svg';
 
-const Task = ({ task }) => {
-  if (!task) {
-    return <p>Task data is not available</p>;
-  }
+const Task = ({ task ,addTaskData,setAddTaskData}) => {
+  
 
 
-  const { taskName, description, date, category } = task;
+  const { taskName, description, date, category,id } = task;
   console.log(category)
+
+  const handleDeleteTask =(event,itemId) =>{
+    event.preventDefault();
+    const filteredItem = addTaskData.filter(item =>{
+        return item.id !== itemId
+    })
+    setAddTaskData([...filteredItem]);
+
+}
+  
 
   return (
     
@@ -21,7 +29,7 @@ const Task = ({ task }) => {
         </h4>
 
         <div className="flex gap-2 w-6 me-5">
-          <img src={deleteIcon} alt="Delete Task" />
+          <img  src={deleteIcon} alt="Delete Task" onClick={(e)=>handleDeleteTask(e,id)}/>
           <img src={editIcon} alt="Edit Task" />
         </div>
       </div>

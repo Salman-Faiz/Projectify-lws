@@ -16,8 +16,8 @@ const DoneList = () => {
         </div>
 
         {items.map(task => (
-          <Task key={task.id} task={task} />
-        ))}
+            <Task key={task.id} task={task} addTaskData={addTaskData} setAddTaskData={setAddTaskData}/>
+          ))}
       </div>
     </div>
   )

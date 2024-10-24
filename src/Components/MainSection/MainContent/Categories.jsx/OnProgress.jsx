@@ -15,10 +15,9 @@ const OnProgress = () => {
           </h3>
           <img src={sortSvg} alt='' />
         </div>
-
         {items.map(task => (
-          <Task key={task.id} task={task} />
-        ))}
+            <Task key={task.id} task={task} addTaskData={addTaskData} setAddTaskData={setAddTaskData}/>
+          ))}
       </div>
     </div>
   )
