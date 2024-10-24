@@ -1,4 +1,36 @@
-const AddTaskModal = ({onClose}) => {
+import { useContext } from 'react'
+import CategoryInput from './CategoryInput'
+import Description from './Description'
+import InputDate from './InputDate'
+import TaskInput from './TaskInput' // Capitalize 'TaskInput'
+import { AddTaskContext } from '../../Context'
+
+/* eslint-disable react/prop-types */
+const AddTaskModal = ({ onClose }) => {
+   
+  const { addTaskData, setAddTaskData } = useContext(AddTaskContext)
+
+  const handleTaskData = event => {
+    event.preventDefault()
+    const form = event.target
+    const taskName = form.taskName?.value // Ensure form input name is correct
+    const description = form.description?.value
+    const dueDate = form.dueDate?.value
+    const category = form.category?.value
+
+    console.log('from add task', taskName, description, dueDate, category)
+    const formData = {
+        taskName, 
+        description,
+        date: dueDate,
+        category: category,
+      };
+    console.log("from add task modal", formData)
+
+   
+    setAddTaskData([...addTaskData, formData]);
+  }
+
   return (
     <div className='flex min-h-screen items-center justify-center bg-gray-900 p-4 text-white'>
       <div className='w-full max-w-md rounded-lg bg-gray-800 shadow-xl'>
@@ -6,69 +38,12 @@ const AddTaskModal = ({onClose}) => {
           <h2 className='mb-6 text-2xl font-bold text-green-400'>
             Create Task
           </h2>
-          <htmlForm>
-            <div className='mb-4'>
-              <label
-                htmlFor='taskName'
-                className='mb-1 block text-sm font-medium text-gray-300'
-              >
-                Task Name
-              </label>
-              <input
-                type='text'
-                id='taskName'
-                name='taskName'
-                required
-                className='w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 shadow-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500'
-              />
-            </div>
-            <div className='mb-4'>
-              <label
-                htmlFor='description'
-                className='mb-1 block text-sm font-medium text-gray-300'
-              >
-                Description
-              </label>
-              <textarea
-                id='description'
-                name='description'
-                rows='3'
-                className='w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 shadow-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500'
-              ></textarea>
-            </div>
-            <div className='mb-4'>
-              <label
-                htmlFor='dueDate'
-                className='mb-1 block text-sm font-medium text-gray-300'
-              >
-                Due Date
-              </label>
-              <input
-                type='date'
-                id='dueDate'
-                name='dueDate'
-                className='w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white shadow-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500'
-              />
-            </div>
-
-            <div className='mb-4'>
-              <label
-                htmlFor='category'
-                className='mb-1 block text-sm font-medium text-gray-300'
-              >
-                Category
-              </label>
-              <select
-                id='category'
-                name='category'
-                className='w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white shadow-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500'
-              >
-                <option value='todo'>To-Do</option>
-                <option value='inprogress'>On Progress</option>
-                <option value='done'>Done</option>
-                <option value='revised'>Revised</option>
-              </select>
-            </div>
+          {/* task form */}
+          <form onSubmit={handleTaskData}>
+            <TaskInput />
+            <Description />
+            <InputDate />
+            <CategoryInput />
 
             <div className='flex justify-end space-x-3'>
               <button
@@ -85,7 +60,7 @@ const AddTaskModal = ({onClose}) => {
                 Create Task
               </button>
             </div>
-          </htmlForm>
+          </form>
         </div>
       </div>
     </div>

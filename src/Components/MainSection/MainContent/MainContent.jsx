@@ -1,12 +1,15 @@
-import { useState } from 'react'
-import DoneList from './Categories.jsx/DoneList'
-import OnProgress from './Categories.jsx/OnProgress'
-import ReviseList from './Categories.jsx/ReviseList'
-import TodoList from './Categories.jsx/TodoList'
+
+
+import { useState } from 'react';
 import addIcon from '../../../assets/Images/AddTaskIcon.svg'
 import AddTaskModal from '../../AddTaskModal/AddTaskModal'
+import Categories from './Categories.jsx/Categories'
+
 
 const MainContent = () => {
+
+ 
+
   const [addTaskModal,setAddTaskModal] = useState(false);
 
   const handleShowAddTask = () =>{
@@ -33,15 +36,8 @@ const MainContent = () => {
         </div>
       </div>
       {/* categoris */}
-      <div className='-mx-2 mb-6 flex flex-wrap'>
-        <TodoList />
-
-        <OnProgress />
-
-        <DoneList />
-
-        <ReviseList />
-      </div>
+      
+      <Categories />
     </div>
     </>
     
