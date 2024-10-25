@@ -6,7 +6,7 @@ import { AddTaskContext } from '../../../../Context'
 const TodoList = () => {
   const { addTaskData, setAddTaskData } = useContext(AddTaskContext)
   const items = addTaskData.filter(task => task.category === 'Todo')
- 
+
   // console.log(items.length)
   return (
     <div className='mb-4 w-full px-2 sm:w-1/2 md:w-1/4'>
@@ -28,7 +28,6 @@ const TodoList = () => {
               task={task}
               addTaskData={addTaskData}
               setAddTaskData={setAddTaskData}
-              
             />
           ))
         )}
