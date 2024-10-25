@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useContext, useState } from 'react'
 import { AddTaskContext } from '../../Context'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const AddTaskModal = ({ onClose }) => {
   const { addTaskData, setAddTaskData, editTask, setEditTask } =
@@ -14,6 +16,27 @@ const AddTaskModal = ({ onClose }) => {
 
   const handleTaskData = event => {
     event.preventDefault()
+
+    // Validate form fields
+    if (!taskName.trim()) {
+      toast.error('Task Name is required!')
+      return
+    }
+
+    if (!description.trim()) {
+      toast.error('Description is required!')
+      return
+    }
+
+    if (!dueDate) {
+      toast.error('Due Date is required!')
+      return
+    }
+
+    if (!category) {
+      toast.error('Category is required!')
+      return
+    }
 
     const updatedTask = {
       id: editTask?.id || crypto.randomUUID(),
@@ -42,8 +65,8 @@ const AddTaskModal = ({ onClose }) => {
     setDueDate('')
     setCategory('Todo')
 
-    // Show success alert
-    window.alert('Task has been successfully added!')
+    // Show success toast
+    toast.success('Task has been successfully added!')
 
     // Reset editTask to null after saving
     setEditTask(null)
@@ -69,7 +92,7 @@ const AddTaskModal = ({ onClose }) => {
                 type='text'
                 id='taskName'
                 name='taskName'
-                required
+                
                 value={taskName}
                 onChange={e => setTaskName(e.target.value)}
                 className='w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 shadow-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 '
@@ -85,7 +108,7 @@ const AddTaskModal = ({ onClose }) => {
               <textarea
                 id='description'
                 name='description'
-                required
+                
                 rows='3'
                 value={description}
                 onChange={e => setDescription(e.target.value)}
@@ -103,7 +126,7 @@ const AddTaskModal = ({ onClose }) => {
                 type='date'
                 id='dueDate'
                 name='dueDate'
-                required
+               
                 value={dueDate}
                 onChange={e => setDueDate(e.target.value)}
                 className='w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white shadow-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500'
@@ -119,7 +142,7 @@ const AddTaskModal = ({ onClose }) => {
               <select
                 id='category'
                 name='category'
-                required
+                
                 value={category}
                 onChange={e => setCategory(e.target.value)}
                 className='w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white shadow-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500'
@@ -149,6 +172,9 @@ const AddTaskModal = ({ onClose }) => {
           </form>
         </div>
       </div>
+
+      {/* Toastify Container */}
+      <ToastContainer />
     </div>
   )
 }
