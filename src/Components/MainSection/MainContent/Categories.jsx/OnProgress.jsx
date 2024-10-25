@@ -10,14 +10,25 @@ const OnProgress = () => {
     <div className='mb-4 w-full px-2 sm:w-1/2 md:w-1/4'>
       <div className='rounded-lg bg-yellow-500 p-4'>
         <div className='mb-2 flex items-center justify-between'>
-          <h3 id='onprogress' className='text-lg font-semibold'>
+          <h3 id='onprogress' className='text-2xl font-semibold'>
             On Progress ({items.length})
           </h3>
           <img src={sortSvg} alt='' />
         </div>
-        {items.map(task => (
-            <Task key={task.id} task={task} addTaskData={addTaskData} setAddTaskData={setAddTaskData}/>
-          ))}
+        {items.length === 0 ? (
+          <p className='text-black font-semibold text-xl'>
+            Task List is empty!
+          </p>
+        ) : (
+          items.map(task => (
+            <Task
+              key={task.id}
+              task={task}
+              addTaskData={addTaskData}
+              setAddTaskData={setAddTaskData}
+            />
+          ))
+        )}
       </div>
     </div>
   )

@@ -9,14 +9,25 @@ const ReviseList = () => {
     <div className='mb-4 w-full px-2 sm:w-1/2 md:w-1/4'>
       <div className='rounded-lg bg-rose-500 p-4'>
         <div className='mb-2 flex items-center justify-between'>
-          <h3 id='revise' className='text-lg font-semibold'>
+          <h3 id='revise' className='text-2xl font-semibold'>
             Revise ({items.length})
           </h3>
           <img src={sortSvg} alt='' />
         </div>
-        {items.map(task => (
-            <Task key={task.id} task={task} addTaskData={addTaskData} setAddTaskData={setAddTaskData}/>
-          ))}
+        {items.length === 0 ? (
+          <p className='text-slate-600 font-semibold text-xl'>
+            Task List is empty!
+          </p>
+        ) : (
+          items.map(task => (
+            <Task
+              key={task.id}
+              task={task}
+              addTaskData={addTaskData}
+              setAddTaskData={setAddTaskData}
+            />
+          ))
+        )}
       </div>
     </div>
   )

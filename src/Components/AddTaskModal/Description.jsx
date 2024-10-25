@@ -5,7 +5,7 @@ const Description = () => {
         <div className='mb-4'>
         <label
           htmlFor='description'
-          className='mb-1 block text-sm font-medium text-gray-300'
+          className='mb-1 block text-xl font-medium text-gray-300'
         >
           Description
         </label>

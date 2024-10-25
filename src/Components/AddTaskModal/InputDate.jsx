@@ -3,7 +3,7 @@ const InputDate = () => {
     <div className='mb-4'>
       <label
         htmlFor='dueDate'
-        className='mb-1 block text-sm font-medium text-gray-300'
+        className='mb-1 block text-xl font-medium text-gray-300'
       >
         Due Date
       </label>

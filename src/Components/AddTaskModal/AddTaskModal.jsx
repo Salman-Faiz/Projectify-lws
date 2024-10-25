@@ -13,7 +13,7 @@ const AddTaskModal = ({ onClose }) => {
   const handleTaskData = event => {
     event.preventDefault()
     const form = event.target
-    const taskName = form.taskName?.value // Ensure form input name is correct
+    const taskName = form.taskName?.value 
     const description = form.description?.value
     const dueDate = form.dueDate?.value
     const category = form.category?.value
@@ -21,7 +21,7 @@ const AddTaskModal = ({ onClose }) => {
     console.log('from add task', taskName, description, dueDate, category)
     const formData = {
         id: crypto.randomUUID(),
-        taskName, 
+        taskName,
         description,
         date: dueDate,
         category: category,
@@ -34,10 +34,10 @@ const AddTaskModal = ({ onClose }) => {
   }
 
   return (
-    <div className='flex min-h-screen items-center justify-center bg-gray-900 p-4 text-white'>
+    <div className='flex min-h-screen items-center justify-center bg-gray-900 p-4 text-white fixed top-0 left-0 w-screen h-screen z-50 bg-black/60 backdrop-blur-sm'>
       <div className='w-full max-w-md rounded-lg bg-gray-800 shadow-xl'>
-        <div className='p-6'>
-          <h2 className='mb-6 text-2xl font-bold text-green-400'>
+        <div className='p-6 text-xl'>
+          <h2 className='mb-6 text-3xl font-bold text-green-400'>
             Create Task
           </h2>
           {/* task form */}
@@ -50,14 +50,15 @@ const AddTaskModal = ({ onClose }) => {
             <div className='flex justify-end space-x-3'>
               <button
                 type='button'
-                className='rounded-md border border-gray-600 px-4 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-800'
+                className='rounded-md border border-gray-600 px-4 py-2 font-medium text-gray-300 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-800 text-xl'
                 onClick={onClose}
               >
                 Cancel
               </button>
-              <button
+              <button 
                 type='submit'
-                className='rounded-md border border-transparent bg-green-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-800'
+                className='rounded-md border border-transparent bg-green-600 px-4 py-2 font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-800 text-xl'
+                
               >
                 Create Task
               </button>
