@@ -41,7 +41,7 @@ const TaskList = ({ category, bgColor }) => {
           <img src={sortSvg} alt='Sort' onClick={handleSortByDate} />
         </div>
         {filteredItems.length === 0 ? (
-          <p className='text-black font-normal text-xl'>
+          <p className='text-gray-900 font-normal text-xl'>
             Task List is empty!
           </p>
         ) : (
