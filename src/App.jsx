@@ -7,6 +7,7 @@ const App = () => {
   const [addTaskData, setAddTaskData] = useState([])
   const [editTask, setEditTask] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [searchData,setSearchData] = useState('')
   
 
   const openEditModal = () => setIsModalOpen(true)
@@ -26,6 +27,8 @@ const App = () => {
         openEditModal,
         closeEditModal,
         setIsModalOpen,
+        searchData,
+        setSearchData,
        
       }}
     >
