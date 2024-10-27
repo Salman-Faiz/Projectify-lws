@@ -6,11 +6,12 @@ import { AddTaskContext } from './Context'
 const App = () => {
   const [addTaskData, setAddTaskData] = useState([])
   const [editTask, setEditTask] = useState(null)
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
 
   const openEditModal = () => setIsModalOpen(true)
   const closeEditModal = () => {
-    setEditTask(null) // Clear edit data when closing the modal
+    setEditTask(null) // when closing the modal clear the edit data
     setIsModalOpen(false)
   }
 
@@ -25,6 +26,7 @@ const App = () => {
         openEditModal,
         closeEditModal,
         setIsModalOpen,
+       
       }}
     >
       <div className='bg-gray-900 text-white'>

@@ -92,7 +92,6 @@ const AddTaskModal = ({ onClose }) => {
                 type='text'
                 id='taskName'
                 name='taskName'
-                
                 value={taskName}
                 onChange={e => setTaskName(e.target.value)}
                 className='w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 shadow-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500 '
@@ -108,7 +107,6 @@ const AddTaskModal = ({ onClose }) => {
               <textarea
                 id='description'
                 name='description'
-                
                 rows='3'
                 value={description}
                 onChange={e => setDescription(e.target.value)}
@@ -126,7 +124,6 @@ const AddTaskModal = ({ onClose }) => {
                 type='date'
                 id='dueDate'
                 name='dueDate'
-               
                 value={dueDate}
                 onChange={e => setDueDate(e.target.value)}
                 className='w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white shadow-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500'
@@ -142,7 +139,6 @@ const AddTaskModal = ({ onClose }) => {
               <select
                 id='category'
                 name='category'
-                
                 value={category}
                 onChange={e => setCategory(e.target.value)}
                 className='w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white shadow-sm focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500'
